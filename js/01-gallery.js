@@ -27,7 +27,7 @@ galleryList.addEventListener("click", openModal);
 function openModal(e) {
   e.preventDefault();
 
-  if (e.target.tagName !== "IMG") {
+  if (e.target.tagName !== "IMG" && !document.querySelector(".basicLightbox"))  {
     return;
   }
 
@@ -37,7 +37,7 @@ function openModal(e) {
   );
   instance.show();
 
-  galleryList.addEventListener("keydown", closeModal);
+  document.addEventListener("keydown", closeModal);
 
   function closeModal(e) {
     if (e.code === "Escape") {
